@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { useWeb3Contract, useMoralis } from "react-moralis"
 import nftMarketplaceAbi from "../constants/NftMarketplace.json"
+import nftFactoryAbi from "../constants/EventFactory.json"
 import nftAbi from "../constants/EventContract.json"
 import Image from "next/image"
 import { Card, useNotification } from "web3uikit"
