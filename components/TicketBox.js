@@ -22,7 +22,7 @@ const truncateStr = (fullStr, strLen) => {
     )
 }
 
-export default function NFTBox({ price, nftAddress, tokenId, marketplaceAddress, seller }) {
+export default function TicketBox({ price, nftAddress, tokenId, marketplaceAddress, seller }) {
     const { isWeb3Enabled, account } = useMoralis()
     const [imageURI, setImageURI] = useState("")
     const [tokenName, setTokenName] = useState("")
