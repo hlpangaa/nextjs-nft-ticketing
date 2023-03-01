@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react"
 import { useWeb3Contract, useMoralis } from "react-moralis"
 import nftMarketplaceAbi from "../constants/NftMarketplace.json"
-import nftAbi from "../constants/BasicNft.json"
+import nftFactoryAbi from "../constants/EventFactory.json"
+import nftAbi from "../constants/EventContract.json"
 import Image from "next/image"
 import { Card, useNotification } from "web3uikit"
 import { ethers } from "ethers"
@@ -22,7 +23,7 @@ const truncateStr = (fullStr, strLen) => {
     )
 }
 
-export default function NFTBox({ price, nftAddress, tokenId, marketplaceAddress, seller }) {
+export default function TicketBox({ price, nftAddress, tokenId, marketplaceAddress, seller }) {
     const { isWeb3Enabled, account } = useMoralis()
     const [imageURI, setImageURI] = useState("")
     const [tokenName, setTokenName] = useState("")

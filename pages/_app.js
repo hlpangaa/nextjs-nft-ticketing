@@ -1,5 +1,5 @@
-import "../styles/globals.css"
-import { MoralisProvider } from "react-moralis"
+import styles from "../styles/globals.css"
+import { MoralisProvider } from "react-moralis" // we will not use the Moralis server, just use their open source code for theGraph
 import Header from "../components/Header"
 import Head from "next/head"
 import { NotificationProvider } from "web3uikit"
@@ -7,7 +7,7 @@ import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client"
 
 const client = new ApolloClient({
     cache: new InMemoryCache(),
-    uri: "https://api.studio.thegraph.com/query/40468/nftticketing/0.0.2", //process.env.NEXT_PUBLIC_SUBGRAPH_URL,
+    uri: "https://api.studio.thegraph.com/query/40468/nftticketing/0.0.4", //process.env.NEXT_PUBLIC_SUBGRAPH_URL,
 })
 
 function MyApp({ Component, pageProps }) {

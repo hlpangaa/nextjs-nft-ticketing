@@ -1,4 +1,7 @@
 {
-    "5": { "NftMarketplace": ["0x784740178e1879C4da1544c53aE658BbF0f8a078"] },
+    "5": {
+        "NftMarketplace": ["0x16AeBE0a47073F3B0860A8046F1EEb8Abd3C94f6"],
+        "EventFactory": ["0x2F038EBCB91741c41C347561236C5BB461CE3CD3"]
+    },
     "31337": { "NftMarketplace": ["0x784740178e1879C4da1544c53aE658BbF0f8a078"] }
 }

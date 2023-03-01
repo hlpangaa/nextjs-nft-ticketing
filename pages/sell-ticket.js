@@ -4,10 +4,12 @@ import styles from "../styles/Home.module.css"
 import { Form, useNotification, Button } from "web3uikit"
 import { useMoralis, useWeb3Contract } from "react-moralis"
 import { ethers } from "ethers"
-import nftAbi from "../constants/BasicNft.json"
 import nftMarketplaceAbi from "../constants/NftMarketplace.json"
+import nftFactoryAbi from "../constants/EventFactory.json"
+import nftAbi from "../constants/EventContract.json"
 import networkMapping from "../constants/networkMapping.json"
 import { useEffect, useState } from "react"
+import { useQuery, gql } from "@apollo/client"
 
 export default function Home() {
     const { chainId, account, isWeb3Enabled } = useMoralis()
@@ -15,8 +17,28 @@ export default function Home() {
     const marketplaceAddress = networkMapping[chainString].NftMarketplace[0]
     const dispatch = useNotification()
     const [proceeds, setProceeds] = useState("0")
-
     const { runContractFunction } = useWeb3Contract()
+
+    const GET_ACTIVE_ITEMS = gql`
+        {
+            activeItems(first: 5, where: { buyer: account }) {
+                id
+                buyer
+                seller
+                nftAddress
+                tokenId
+                price
+            }
+        }
+    `
+
+    /**
+     *
+     * IERC721Enumerable
+     * balance = balanceOf(accoumnt)
+     *  tokenId = tokenOfOwnerByIndex(account,i)
+     * tokenURI = tokenURI(tokenId)
+     */
 
     async function approveAndList(data) {
         console.log("Approving...")
