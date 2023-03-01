@@ -1,9 +1,12 @@
 import { gql } from "@apollo/client"
 
 // See more example queries on https://thegraph.com/explorer/subgraph/protofire/maker-protocol
+// 0x0000000000000000000000000000000000000000 zero address
+// 0x000000000000000000000000000000000000dEaD dead address
+
 export const GET_ACTIVE_ITEMS = gql`
     {
-        activeItems(first: 5, where: { buyer: "0x000000000000000000000000000000000000dead" }) {
+        activeItems(first: 5, where: { buyer: "0x0000000000000000000000000000000000000000" }) {
             id
             buyer
             seller
@@ -55,6 +58,18 @@ export const GET_LISTED_ITEMS = gql`
             nftAddress
             tokenId
             price
+        }
+    }
+`
+
+export const GET_ROYALITY_PAID = gql`
+    {
+        royalityPaid(first: 5) {
+            buyer
+            receiver
+            nftAddress
+            tokenId
+            royaltyAmount
         }
     }
 `
